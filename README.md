@@ -1,7 +1,15 @@
 # MATLAB_DeepToolbox
 matlab deeptoolbox usage
+```bash
+.
+├── 1. Load and Explore Image Data
+├── 2. Define Network Architecture
+├── 3. Specify Training Options
+├── 4. Train Network Using Training Data
+├── 5. Classify Validation Images and Compute Accuracy
+```
 
-## Load and Explore Image Data
+## 1. Load and Explore Image Data
 ```
 digitDatasetPath = fullfile(matlabroot,'toolbox','nnet','nndemos', ...
     'nndatasets','DigitDataset');
@@ -11,7 +19,7 @@ numTrainFiles = 750;
 [imdsTrain,imdsValidation] = splitEachLabel(imds,numTrainFiles,'randomize');
 ```
 
-## Define Network Architecture
+## 2. Define Network Architecture
 
 ```
 layers = [
@@ -38,7 +46,7 @@ layers = [
     classificationLayer];
 ```
 
-## Specify Training Options
+## 3. Specify Training Options
 
 ```
 options = trainingOptions('sgdm', ...
@@ -52,15 +60,15 @@ options = trainingOptions('sgdm', ...
 ```
 
 
-## Train Network Using Training Data
+## 4. Train Network Using Training Data
 ```
 net = trainNetwork(imdsTrain,layers,options);
 ```
 <p align='center'>
-<img src="Readme/train_epoch.png" width="450"/> 
+<img src="Readme/train_epoch.png" width="600"/> 
 </p>
 
-## Classify Validation Images and Compute Accuracy
+## 5. Classify Validation Images and Compute Accuracy
 ```
 YPred = classify(net,imdsValidation);
 YValidation = imdsValidation.Labels;
