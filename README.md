@@ -18,6 +18,18 @@ imds = imageDatastore(digitDatasetPath, ...
 numTrainFiles = 750;
 [imdsTrain,imdsValidation] = splitEachLabel(imds,numTrainFiles,'randomize');
 ```
+Display some of the images in the datastore.
+```
+figure;
+perm = randperm(10000,20);
+for i = 1:20
+    subplot(4,5,i);
+    imshow(imds.Files{perm(i)});
+end
+```
+<p align='center'>
+<img src="Readme/digits.png" width="600"/> 
+</p>
 
 ## 2. Define Network Architecture
 
