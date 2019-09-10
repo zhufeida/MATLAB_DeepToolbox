@@ -57,7 +57,7 @@ options = trainingOptions('sgdm', ...
 net = trainNetwork(imdsTrain,layers,options);
 ```
 <p align='center'>
-<img src="Readme/train_epoch.png" width="150"/> 
+<img src="Readme/train_epoch.png" width="450"/> 
 </p>
 
 ## Classify Validation Images and Compute Accuracy
