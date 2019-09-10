@@ -1,39 +1,18 @@
-# MATLAB_DeepToolbox
-Matlab deeptoolbox usage: Generally speaking, there are 5 steps to follow. This is a simple demo which shows how to classify digits. Refer to "train_digits.m" for the complete code. 
-```bash
-.
-├── 1. Load and Explore Image Data
-├── 2. Define Network Architecture
-├── 3. Specify Training Options
-├── 4. Train Network Using Training Data
-├── 5. Classify Validation Images and Compute Accuracy
-```
+gpuDevice(1)
 
-## 1. Load and Explore Image Data
-```
 digitDatasetPath = fullfile(matlabroot,'toolbox','nnet','nndemos', ...
     'nndatasets','DigitDataset');
 imds = imageDatastore(digitDatasetPath, ...
     'IncludeSubfolders',true,'LabelSource','foldernames');
+% figure;
+% perm = randperm(10000,20);
+% for i = 1:20
+%     subplot(4,5,i);
+%     imshow(imds.Files{perm(i)});
+% end
+
 numTrainFiles = 750;
 [imdsTrain,imdsValidation] = splitEachLabel(imds,numTrainFiles,'randomize');
-```
-Display some of the images in the datastore.
-```
-figure;
-perm = randperm(10000,20);
-for i = 1:20
-    subplot(4,5,i);
-    imshow(imds.Files{perm(i)});
-end
-```
-<p align='center'>
-<img src="Readme/digits.png" width="600"/> 
-</p>
-
-## 2. Define Network Architecture
-
-```
 layers = [
     imageInputLayer([28 28 1])
     
@@ -56,11 +35,6 @@ layers = [
     fullyConnectedLayer(10)
     softmaxLayer
     classificationLayer];
-```
-
-## 3. Specify Training Options
-
-```
 options = trainingOptions('sgdm', ...
     'InitialLearnRate',0.01, ...
     'MaxEpochs',4, ...
@@ -69,24 +43,22 @@ options = trainingOptions('sgdm', ...
     'ValidationFrequency',30, ...
     'Verbose',false, ...
     'Plots','training-progress');
-```
-
-
-## 4. Train Network Using Training Data
-```
 net = trainNetwork(imdsTrain,layers,options);
-```
-<p align='center'>
-<img src="Readme/train_epoch.png" width="600"/> 
-</p>
 
-## 5. Classify Validation Images and Compute Accuracy
-```
 YPred = classify(net,imdsValidation);
 YValidation = imdsValidation.Labels;
 
 accuracy = sum(YPred == YValidation)/numel(YValidation)
-```
 
-accuracy = 0.9924
+
+
+
+
+
+
+
+
+
+
+
 
