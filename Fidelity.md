@@ -6,11 +6,11 @@ Matlab deeptoolbox usage: Generally speaking, there are 5 steps to follow. This 
 ├── 2. Define Network Architecture
 ├── 3. Specify Training Options
 ├── 4. Train Network Using Training Data
-├── 5. Classify Validation Images and Compute Accuracy
+├── 5. Remove testing images' artifacts
 ```
 
 <p align='center'>
-<img src="Readme/JPEG_compression.png" width="600"/> 
+<img src="Readme/JPEG_compression.png" width="800"/> 
 </p>
 
 ## 1. Load and Explore Image Data
@@ -106,7 +106,7 @@ If you keep the doTraining parameter in the following code as false, then the ex
 Note: Training takes about 40 hours on an NVIDIA™ Titan X and can take even longer depending on your GPU hardware.
 
 
-## 5. Classify Validation Images and Compute Accuracy
+## 5. Remove testing images' artifacts
 Create sample images to evaluate the result of JPEG image deblocking using the DnCNN network. The test data set, testImages, contains 21 undistorted images shipped in Image Processing Toolbox™. Load the images into an imageDatastore.
 ```
 exts = {'.jpg','.png'};
