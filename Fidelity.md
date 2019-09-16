@@ -1,5 +1,5 @@
 # MATLAB_DeepToolbox
-Matlab deeptoolbox usage: Generally speaking, there are 5 steps to follow. This is a simple demo which shows how to classify digits. Refer to "train_digits.m" for the complete code. 
+Matlab deeptoolbox usage: Generally speaking, there are 5 steps to follow. This is a simple demo which shows how to remove JPEG blocking artifacts during compression. 
 ```bash
 .
 ├── 1. Load and Explore Image Data
@@ -8,6 +8,10 @@ Matlab deeptoolbox usage: Generally speaking, there are 5 steps to follow. This 
 ├── 4. Train Network Using Training Data
 ├── 5. Classify Validation Images and Compute Accuracy
 ```
+
+<p align='center'>
+<img src="Readme/JPEG_compression.png" width="600"/> 
+</p>
 
 ## 1. Load and Explore Image Data
 Use the helper function, downloadIAPRTC12Data, to download the training images. 

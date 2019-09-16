@@ -4,7 +4,7 @@ This repo shows how to train recognition problems (such as digit classification)
 
 - **[MNIST trial](Recognition.md)**
 
--**[JPEG Deblock](Fidelity.md)**
+- **[JPEG Deblock](Fidelity.md)**
 
 
 
